@@ -111,7 +111,6 @@ bool Piece::scan(Piece board[][8]) {
 }
 
 void Piece::reversi(Piece board[][8]) {
-	int size = pairs.size();
 	int vectorI = 0, vectorJ = 0;
 	int travelRow = m_row;
 	int travelCol = m_col;
