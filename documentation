@@ -1,0 +1,33 @@
+ pieces will be stored in their respective vectors to make it easier to keep track of what to look at???
+
+problems/todo:
+	display board
+	valid moves check***
+		scan board for pieces
+		no available moves check
+	flip pieces**
+		update vectors??
+
+solution:
+	keep pieces in the array; loop thru the array and run the valid move check on every piece (of that color) on the board
+		keep note of which piece has a valid move, and where
+		display valid moves
+		once a valid move is picked, flip pieces inbetween it and the pieces marked (see above)
+
+ | A | B | C | D | E | F | G | H |
+---------------------------------|
+1|   |   |   |   |   |   |   |   |
+---------------------------------|
+2|   |   |   |   |   |   |   |   |
+---------------------------------|
+3|   |   |   |   |   |   |   |   |
+---------------------------------|
+4|   |   |   |   |   |   |   |   |
+---------------------------------|
+5|   |   |   |   |   |   |   |   |
+---------------------------------|
+6|   |   |   |   |   |   |   |   |
+---------------------------------|
+7|   |   |   |   |   |   |   |   |
+---------------------------------|
+8|   |   |   |   |   |   |   |   |
