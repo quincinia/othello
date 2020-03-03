@@ -18,7 +18,6 @@ Piece::Piece() {
 	}
 	
 	m_color = 'O';
-	//cout << "[" << count++ << "] X: " << m_row << "; Y: " << m_col << endl;
 }
 
 Piece::Piece(char c, int xc, int yc) : m_color(c), m_row(xc), m_col(yc) {
@@ -113,12 +112,9 @@ bool Piece::scan(Piece board[][8]) {
 
 void Piece::reversi(Piece board[][8]) {
 	int size = pairs.size();
-	//cout << "pairs size: " << size << endl;
 	int vectorI = 0, vectorJ = 0;
 	int travelRow = m_row;
 	int travelCol = m_col;
-	//cout << "location: (" << m_row << ", " << m_col << ")\n";
-	//cout << "pair: (" << pairs[0].row() << ", " << pairs[0].col() << ")\n";
 	for(int i = 0; i < pairs.size(); ++i) {
 		travelRow = m_row;
 		travelCol = m_col;
@@ -130,14 +126,11 @@ void Piece::reversi(Piece board[][8]) {
 		if (vectorJ != 0) {
 			vectorJ = vectorJ/abs(vectorJ);
 		}
-		//cout << "vector: <" << vectorI << ", " << vectorJ << ">\n";
-		//creates the trace vector and turns it into a unit vector
+		//creates the trace vector and turns it into a unit vector <vectorI, vectorJ>
 		while((travelRow + vectorI + travelCol + vectorJ) != (pairs[i].row() + pairs[i].col())) {
 			travelRow += vectorI;
 			travelCol += vectorJ;
-			//cout << "flipping: (" << travelRow << ", " << travelCol << ")\n";
 			board[travelRow][travelCol].flip();
-			//printBoard(board);
 		}
 	}
 	pairs.clear();
