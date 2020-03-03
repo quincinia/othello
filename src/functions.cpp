@@ -73,7 +73,7 @@ void place(char color, Piece board[][8]) {
 	}
 	std::cin.getline(line, 99);
 	cout << "you selected: (" << iRow << ", " << iCol << ") (" << iRow << ", " << char(iCol+65) << ")\n";
-	cout << "piece location: (" << board[iRow][iCol].row() << ", " << board[iRow][iCol].col() << ")\n";
+	//cout << "piece location: (" << board[iRow][iCol].row() << ", " << board[iRow][iCol].col() << ")\n";
 	/*board[iCol][iRow].setcolor('*');
 	printBoard(board);*/
 	
