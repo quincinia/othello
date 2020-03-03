@@ -70,19 +70,17 @@ bool Piece::oob(int x, int y) {
 bool Piece::trace(int i, int j, Piece board[][8]) {
 	int traceRow = m_row + i;
 	int traceCol = m_col + j;
-	//cout << "tracepos1: <" << traceRow << ", " << traceCol << ">\n";
 	do {
 		//traces along <i, j>, stops when it hits a space, matching color, goes out of bounds, or '+'
 		traceRow += i;
 		traceCol += j;
-		//cout << "tracepos2: <" << traceRow << ", " << traceCol << ">\n";
+
 		if (oob(traceRow, traceCol)) {return 0;}
-	} while (/*(!oob(traceRow, traceCol)) && (board[traceRow][traceCol].color() != ' ') && (board[traceRow][traceCol].color() != this->color()) && ((board[traceRow][traceCol].color() == '+'))*/(board[traceRow-i][traceCol-j].color() == board[traceRow][traceCol].color())); //FIX: traces until 
+	} while (board[traceRow-i][traceCol-j].color() == board[traceRow][traceCol].color());
 	
 	if (((board[traceRow][traceCol].color() != ' ') || (board[traceRow][traceCol].color() != '+')) && (board[traceRow][traceCol].color() != m_color)) { //only a valid move if the first non-opposite color is ' ' or '+', and the spot isnt already filled by ur color
-		//cout << "tracing: (" << traceRow << ", " << traceCol << ")\n";
 		board[traceRow][traceCol].setcolor('+');
-		board[traceRow][traceCol].pairs.push_back(*this); //apparently this is a valid operation even though pairs is supposed to be a private member
+		board[traceRow][traceCol].pairs.push_back(*this);
 		return 1;
 	} //note: this will keep placing '+' unless they are cleared beforehand
 	return 0;
@@ -94,8 +92,7 @@ bool Piece::scan(Piece board[][8]) {
 	int scanCol = m_col - 1;
 	for (; scanRow < (m_row + 2); ++scanRow) {
 		for (scanCol = m_col - 1; scanCol < (m_col + 2); ++scanCol) {
-			//cout << "scanRow, Y: (" << scanRow << ", " << scanCol << ")\n" << endl;
-			if (oob(scanRow, scanCol)) {continue;}
+			if (oob(scanRow, scanCol)) {continue;} //prevents segfaults
 			if ((scanRow == m_row && scanCol == m_col) || 
 				 (board[scanRow][scanCol].color() == ' ') || 
 				 (board[scanRow][scanCol].color() == m_color) || 
@@ -116,12 +113,12 @@ bool Piece::scan(Piece board[][8]) {
 
 void Piece::reversi(Piece board[][8]) {
 	int size = pairs.size();
-	cout << "pairs size: " << size << endl;
+	//cout << "pairs size: " << size << endl;
 	int vectorI = 0, vectorJ = 0;
 	int travelRow = m_row;
 	int travelCol = m_col;
-	cout << "location: (" << m_row << ", " << m_col << ")\n";
-	cout << "pair: (" << pairs[0].row() << ", " << pairs[0].col() << ")\n";
+	//cout << "location: (" << m_row << ", " << m_col << ")\n";
+	//cout << "pair: (" << pairs[0].row() << ", " << pairs[0].col() << ")\n";
 	for(int i = 0; i < pairs.size(); ++i) {
 		travelRow = m_row;
 		travelCol = m_col;
@@ -133,12 +130,12 @@ void Piece::reversi(Piece board[][8]) {
 		if (vectorJ != 0) {
 			vectorJ = vectorJ/abs(vectorJ);
 		}
-		cout << "vector: <" << vectorI << ", " << vectorJ << ">\n";
+		//cout << "vector: <" << vectorI << ", " << vectorJ << ">\n";
 		//creates the trace vector and turns it into a unit vector
 		while((travelRow + vectorI + travelCol + vectorJ) != (pairs[i].row() + pairs[i].col())) {
 			travelRow += vectorI;
 			travelCol += vectorJ;
-			cout << "flipping: (" << travelRow << ", " << travelCol << ")\n";
+			//cout << "flipping: (" << travelRow << ", " << travelCol << ")\n";
 			board[travelRow][travelCol].flip();
 			//printBoard(board);
 		}
