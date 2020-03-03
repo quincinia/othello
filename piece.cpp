@@ -17,10 +17,10 @@ Piece::Piece() {
 		m_row = tX;
 	}
 	
-	m_color = 'O';
+	m_color = ' ';
 }
 
-Piece::Piece(char c, int xc, int yc) : m_color(c), m_row(xc), m_col(yc) {
+Piece::Piece(char c, int xc, int yc) : m_row(xc), m_col(yc), m_color(c) {
 	
 }
 
