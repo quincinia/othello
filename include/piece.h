@@ -7,6 +7,7 @@ class Piece {
 		Piece();
 		Piece(char c, int xc = 0, int yc = 0);
 
+		//getters + setters
 		char color() const;
 		void setcolor(char c);
 
@@ -16,8 +17,10 @@ class Piece {
 		int col() const;
 		void setcol(int y);
 
+		//changes from X->O or O->X
 		void flip();
 
+		//used to set coordinates of all the pieces
 		static int tX;
 		static int tY;
 		
@@ -25,9 +28,10 @@ class Piece {
 		//scans the surrounding 8 spaces for a color of the (opposite type)***
 		//***see piece.cpp
 		//if scan returns 0, display "no available moves" (in main)
+		//if available move is found, calls trace() to verify
 		bool scan(Piece board[][8]);
 
-		std::vector<Piece> pairs; //remember to move this back into private(?)
+		std::vector<Piece> pairs; //used to keep track of which pieces need to be flipped when a move is selected
 		bool oob(int x, int y); //out of bounds
 
 		void reversi(Piece board[][8]);
