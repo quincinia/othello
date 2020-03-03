@@ -1,7 +1,6 @@
 # othello/reversi
 text based othello/reversi game
 
-todo: fix #include statements 
-      test compilation
+moved files out of folder 
 
 https://en.wikipedia.org/wiki/Reversi#Rules
