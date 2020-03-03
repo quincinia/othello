@@ -1,5 +1,5 @@
-#include "piece.h"
-#include "functions.h"
+#include "include/piece.h"
+#include "include/functions.h"
 #include <iostream>
 #include <cstdlib>
 using namespace std;
