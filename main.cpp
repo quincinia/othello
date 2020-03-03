@@ -27,7 +27,6 @@ int main() {
 			//if no valid moves, skip to black's turn
 		//black's turn is the same as whites
 
-char input[100];
 bool whiteTurn = 1;
 bool blackTurn = 1;
 while (whiteTurn == 1 || blackTurn == 1) {
