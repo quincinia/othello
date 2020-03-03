@@ -1,8 +1,3 @@
-//most of the x's and y's are flipped
-//todo: fix functions to work under the board[y(number)][x(letter)] system
-
-//try to make things in row column format
-
 #include <iostream>
 #include <vector>
 #include <iterator>
