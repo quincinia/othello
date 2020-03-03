@@ -2,8 +2,8 @@
 #include <iterator>
 #include <iostream>
 #include <cctype> //isalpha()
-#include "include/piece.h" //note: these filepaths have not been tested yet
-#include "include/functions.h"
+#include "piece.h" //note: these filepaths have not been tested yet
+#include "functions.h"
 using namespace std;
 
 void printBoard(Piece board[][8]) {
