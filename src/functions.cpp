@@ -78,7 +78,7 @@ void place(char color, Piece board[][8]) {
 	printBoard(board);*/
 	
 	} while (board[iRow][iCol].color() != '+' || board[0][0].oob(iRow, iCol));
-	cout << "test1\n";
+	//cout << "test1\n";
 	board[iRow][iCol].setcolor(color); 
 
 	//printBoard(board);
