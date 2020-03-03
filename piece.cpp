@@ -4,8 +4,6 @@
 #include <cstdlib>
 using namespace std;
 
-static int count = 1;
-
 Piece::Piece() {
 	if (tY < 8) { //sets the correct cords in the array/board
 		m_col = tY++;
