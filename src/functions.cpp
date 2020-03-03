@@ -24,7 +24,6 @@ bool turn(char color, Piece board[][8]) {
 	for (int i = 0; i < 8; ++i) {
 		for (int j = 0; j < 8; ++j) {
 			if (board[i][j].color() == color) {
-				//cout << "found!\n";
 				board[i][j].scan(board) ? (valid = 1):0;
 			}
 		}
@@ -41,11 +40,9 @@ void place(char color, Piece board[][8]) {
 	cout << "Enter coordinates: ";
 	do {
 	cin >> input1;
-	//cout << "input1: " << input1 << endl;
 	switch (isalpha(input1)) {
 		case 0: {
 			cin >> input2;
-			//cout << "input2: " << input2 << endl;
 			if (isalpha(input2)) {
 				input2 = toupper(input2);
 				iRow = input1 - 49;
@@ -59,7 +56,6 @@ void place(char color, Piece board[][8]) {
 		default: {
 			input1 = toupper(input1);
 			cin >> input2;
-			//cout << "input2: " << input2 << endl;
 			if (isalpha(input2)) {
 				iRow = (int)input1 - 65;
 				iCol = (int)input2 - 65;
@@ -72,21 +68,10 @@ void place(char color, Piece board[][8]) {
 		}
 	}
 	std::cin.getline(line, 99);
-	cout << "you selected: (" << iRow << ", " << iCol << ") (" << iRow << ", " << char(iCol+65) << ")\n";
-	//cout << "piece location: (" << board[iRow][iCol].row() << ", " << board[iRow][iCol].col() << ")\n";
-	/*board[iCol][iRow].setcolor('*');
-	printBoard(board);*/
-	
+	cout << "you selected: (" << iRow << ", " << iCol << ") (" << iRow << ", " << char(iCol+65) << ")\n";	
 	} while (board[iRow][iCol].color() != '+' || board[0][0].oob(iRow, iCol));
-	//cout << "test1\n";
 	board[iRow][iCol].setcolor(color); 
-
-	//printBoard(board);
-	
-
-	board[iRow][iCol].reversi(board); //and here
-
-	//cout << "test2\n";
+	board[iRow][iCol].reversi(board); 
 }
 
 void clearPairs(Piece board[][8]) {
