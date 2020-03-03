@@ -15,21 +15,12 @@ int Piece::tY = 0;
 
 int main() {
 	int whiteCount = 0, blackCount = 0;
-  Piece board[8][8];
-	//cout << "piece (0, 1): " << board[0][1].row() << " " << board[0][1].col() << endl;
-	//board[0][1].setcolor('1');
+ 	Piece board[8][8];
 	board[3][3].setcolor('O');
 	board[4][4].setcolor('O');
 	board[3][4].setcolor('X');
 	board[4][3].setcolor('X');
-	/*board[2][3].setcolor('X');
-	board[2][4].setcolor('O');
-	board[0][0].setcolor('X');
-	board[0][1].setcolor('O');*/
-	//board[1][3].setcolor('O');
 
-	//printBoard(board);
-	//cout << "size check: " << board[0][0].pairs.size();
 
 	//game loop:
 	//while both players have valid moves:
@@ -41,7 +32,6 @@ int main() {
 			//if no valid moves, skip to black's turn
 		//black's turn is the same as whites
 
-//return 0;
 char input[100];
 bool whiteTurn = 1;
 bool blackTurn = 1;
